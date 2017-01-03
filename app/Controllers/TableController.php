@@ -12,7 +12,7 @@
 
 		public function __construct()
 		{
-
+			
 		}
 
 
@@ -29,25 +29,29 @@
 
 			Table::insert($params);
 
-			return $response->withJSON(["Successfully Created"]);
+			return $response->withJSON(["message" => "Successfully Created"]);
 		}
 
 
     	public function update($request,$response, $args)
 		{
 
-			$table = new Table();
-			$table->add();
-			return $response->withJSON($table->add());
+			$params = $request->getParsedBody();
+
+			Table::where('id',$args['id'])->update($params);
+
+
+			return $response->withJSON(["message" => "Successfully Updated"]);
 		}
 
 
     	public function delete($request,$response, $args)
 		{
+			$flight = Table::find($args['id']);
 
-			$table = new Table();
-			$table->add();
-			return $response->withJSON($table->add());
+			$flight->delete();			
+
+			return $response->withJSON(["message" => "Successfully Deleted"]);
 		}
 
 	}
