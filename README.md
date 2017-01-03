@@ -8,7 +8,7 @@ This skeleton application was built for Composer. This makes setting up a new Sl
 
 Run this command from the directory in which you want to install your new Slim Framework application.
 
-    php composer.phar create-project jnbruno/kickstart [my-app-name]
+    php composer.phar create-project --stability=dev jnbruno/kickstart [my-app-name]
 
 Replace `[my-app-name]` with the desired directory name for your new application. You'll want to:
 

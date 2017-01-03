@@ -3,6 +3,20 @@
 
 $container = $app->getContainer();
 
+use Illuminate\Database\Capsule\Manager as Capsule;  
+$capsule = new Capsule; 
+$capsule->addConnection($container->get('settings')['database']);
+$capsule->setAsGlobal();
+$capsule->bootEloquent();
+
+// var_dump($capsule->table('table')->find(1));exit;
+
+
+$container['App\Controllers\TableController'] = function ($c) use ($app){
+    return new App\Controllers\TableController();
+};
+
+
 // view renderer
 $container['renderer'] = function ($c) {
     $settings = $c->get('settings')['renderer'];
