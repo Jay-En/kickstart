@@ -1,4 +1,4 @@
-# Kickstart - Rapid Boiler Plate for SLIM Frameworl
+# Kickstart - Rapid Boiler Plate for SLIM Framework
 
 Use this skeleton application to quickly setup and start working on a new Slim Framework 3 application. This application uses the latest Slim 3 with the PHP-View template renderer. It also uses the Monolog logger.
 
