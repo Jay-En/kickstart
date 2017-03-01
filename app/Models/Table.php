@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
+use ValidatorFactory;
 
 
 
-class Table extends \Illuminate\Database\Eloquent\Model {
+class Table extends Model {
 
 	use SoftDeletes;
 
@@ -15,7 +16,15 @@ class Table extends \Illuminate\Database\Eloquent\Model {
 	protected $guarded = ['id'];
 	protected $fillable = ['name','count','date'];
     public $timestamps = false;
+    protected $errors;
+    protected $rules = [
+    		"name" =>  "required|min:6|unique:tables,name"
 
-    
+    ];
+
+    public function errors()
+    {
+    	return $this->errors;
+    }
 
 }

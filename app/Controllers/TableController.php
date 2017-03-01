@@ -27,7 +27,15 @@
 		{
 			$params = $request->getParsedBody();
 
-			Table::insert($params);
+			$table = new Table;
+			
+			if($table->validate($params)){
+				$table->save();
+			}else{
+				return $response->withJSON($table->errors());
+			}
+
+		
 
 			return $response->withJSON(["message" => "Successfully Created"]);
 		}
