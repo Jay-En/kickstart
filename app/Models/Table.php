@@ -14,8 +14,7 @@ class Table extends Model {
 
 	protected $table;
 	protected $guarded = ['id'];
-	protected $fillable = ['name','count','date'];
-    public $timestamps = false;
+    public    $timestamps = false;
     protected $errors;
     protected $rules = [
     		"name" =>  "required|min:6|unique:tables,name"
